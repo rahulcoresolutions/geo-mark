@@ -1,0 +1,38 @@
+<ion-content>
+	<ion-row class="signin-margin">
+		<ion-col align="center">
+			<img src="../../assets/GEO LOGO.png" width="180" />
+		</ion-col>
+	</ion-row>
+	<ion-row class="signin-margin">
+		<ion-col align="center" size="12">
+			<h5 class="fw-400" no-margin>Sign In</h5>
+		</ion-col>
+		<ion-col size="12" align="center">
+			<h6 class="fw-400" no-margin mt>Sign In with your username and password</h6>
+			<ion-icon name="arrow-dropdown"></ion-icon>
+		</ion-col>
+	</ion-row>
+	<ion-row padding>
+		<ion-col class="details-box" padding size="12">
+			<ion-list>
+				<ion-item lines="none">
+					<ion-label position="stacked">Username</ion-label>
+					<ion-input class="username-input" [(ngModel)]="username"></ion-input>
+				</ion-item>
+				<ion-item lines="none" class="password-item">
+					<ion-label position="stacked">Password</ion-label>
+					<ion-input class="password-input" type="password" [(ngModel)]="password"></ion-input>
+				</ion-item>
+			</ion-list>
+		</ion-col>
+		<!-- <ion-col size="12" align="right" class="forget-col">
+			<a href="javascript:void(0)" class="forgetpass">Forget Password</a>
+		</ion-col> -->
+	</ion-row>
+	<ion-row align="center">
+		<ion-col align="center">
+			<ion-button class="signin-button" (click)="login()">Sign In</ion-button>
+		</ion-col>
+	</ion-row>
+</ion-content>

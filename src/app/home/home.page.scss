@@ -1,0 +1,39 @@
+.buttons-row{
+    margin-top: 50px;
+}
+hr{
+    background-color: #CCC;
+}
+
+.captured-time{
+    float: right;
+}
+.capture_image{
+    width: 100px;
+}
+
+ion-toolbar{
+    --background: #573a3e;
+    color: #FFF;
+}
+
+ion-content{
+    --background: #d8c9c9;
+}
+
+.capturedList{
+    height: 450px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.table-row{
+    position: absolute;
+    bottom: 0px;
+}
+
+.dot-icon{
+    padding-right: 10px;
+    position: absolute;
+    right: 0px;
+}
