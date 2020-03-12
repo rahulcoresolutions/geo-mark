@@ -1,0 +1,1 @@
+export let API_URL = 'https://core-solutions.in/geo-mark/';

@@ -26,6 +26,14 @@ const routes: Routes = [
   {
     path: 'start-recording',
     loadChildren: () => import('./start-recording/start-recording.module').then( m => m.StartRecordingPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'subscription',
+    loadChildren: () => import('./subscription/subscription.module').then( m => m.SubscriptionPageModule)
   }
 ];
 

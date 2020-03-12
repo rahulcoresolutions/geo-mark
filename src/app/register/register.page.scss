@@ -1,5 +1,7 @@
 .fw-400{
     font-weight: 400;
+    margin: 0px;
+    margin-bottom: 11px;
 }
 
 .signin-margin{
@@ -39,10 +41,4 @@
     height: 43px;
     text-transform: none;
     --background: #573a3e;
-}
-.signup{
-    font-size: 14px;
-    strong{
-        color: #573a3e;
-    }
 }

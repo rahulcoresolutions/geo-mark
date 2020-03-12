@@ -107,11 +107,11 @@ export class TakePicturePage implements OnInit {
 		}
 
 		watermark([this.blobImage])
-		  .dataUrl(watermark.text.atPos(x,y, this.address.slice(0,30), this.font_size+'px Arial', '#fff', 1))
+		  .dataUrl(watermark.text.atPos(x,y, this.address.slice(0,30), this.font_size+'px Arial', '#ec0b0b', 1))
 		  .render()
-		  .dataUrl(watermark.text.atPos(x2,y2, this.address.slice(30,this.address.length), this.font_size+'px Arial', '#fff', 1))
+		  .dataUrl(watermark.text.atPos(x2,y2, this.address.slice(30,this.address.length), this.font_size+'px Arial', '#ec0b0b', 1))
 		  .render()
-		  .dataUrl(watermark.text.atPos(xLatLong,yLatLong, this.lat+' | '+this.long, this.font_size+'px Arial', '#fff', 1))
+		  .dataUrl(watermark.text.atPos(xLatLong,yLatLong, this.lat+' | '+this.long, this.font_size+'px Arial', '#ec0b0b', 1))
 		  .then(img => {
 			  	let fileName = "IMG_"+Math.random().toString().split('.')[1]+".jpeg";
 			  	this.storeData(fileName,this.lat,this.long,this.address);
@@ -124,11 +124,16 @@ export class TakePicturePage implements OnInit {
 			this.geolocation.getCurrentPosition().then((resp) => {
 				this.lat = resp.coords.latitude;
 				this.long = resp.coords.longitude;
-				this.apiService.getLocation(resp.coords.latitude,resp.coords.longitude).then((result:any)=>{
-					this.address = result.results[0].formatted;
+				let data = {
+					lat: resp.coords.latitude,
+					long: resp.coords.longitude
+				}
+				this.apiService.getAdress(data).then((result:any)=>{
+					this.address = result.address;
 					this.apiService.loading.dismiss();
 				});
 			}).catch((error) => {
+				this.apiService.loading.dismiss();
 				console.log('Error getting location', error);
 			});
 		});

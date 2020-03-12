@@ -1,0 +1,21 @@
+<ion-header>
+	<ion-toolbar>
+	  	<ion-title align="center">Geo Mark</ion-title>
+	  	<ion-icon name="ellipsis-vertical-outline" slot="end" class="dot-icon" (click)="showPopover()"></ion-icon>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-row class="subscription-row">
+		<ion-col size="12">
+			<img src="../../assets/pngfuel.com (1).png" />
+		</ion-col>
+		<ion-col size="12">
+			<h2>You don't have any subscription!</h2>
+			<h6 class="no-margin">Please subscribe to start using app!</h6><br/>
+			<small>₹300/- only for 3 Months subscription</small>
+		</ion-col>
+		<ion-col align="center">
+			<ion-button class="signin-button" (click)="payNow()">Pay Now ₹300</ion-button>
+		</ion-col>
+	</ion-row>
+</ion-content>

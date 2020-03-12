@@ -5,7 +5,7 @@ import { File } from '@ionic-native/file/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { PopOverComponent } from '../pop-over/pop-over.component';
-
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-home',
@@ -15,10 +15,39 @@ import { PopOverComponent } from '../pop-over/pop-over.component';
 export class HomePage implements OnInit {
 	public imagesArray:any = [];
 	public havePermissions:any = false;
-	  constructor(public navCtrl: NavController, public androidPermissions: AndroidPermissions, public file: File, 
+	
+	constructor(public navCtrl: NavController, public androidPermissions: AndroidPermissions, public file: File, 
 		private photoViewer: PhotoViewer, private webview: WebView,
-		public popoverController: PopoverController
-		) { }
+		public popoverController: PopoverController,
+		public apiService: ApiService
+		) { 
+		let today = new Date();
+		let checkExpiration:any = localStorage.getItem('daily_expiration');
+		checkExpiration = new Date(checkExpiration);
+		let user:any = JSON.parse(localStorage.getItem('user'));
+		if(checkExpiration != today){
+			let data = {
+				user_id: user.id
+			};
+			this.apiService.getSubscription(data).then((result:any)=>{
+				let expiry = result.last_subscription;
+				console.log(expiry);
+				expiry = new Date(expiry.expiry_date);
+				let today = new Date();
+				localStorage.setItem('expiry_date',result.last_subscription.expiry_date);
+				localStorage.setItem('daily_expiration',today.toString());
+				if ( today > expiry ){
+					localStorage.removeItem('subscription_status');
+					localStorage.removeItem('expiry_date');
+					this.navCtrl.navigateRoot('subscription',{animationDirection: 'forward'});
+				}
+			},err=>{
+				localStorage.removeItem('subscription_status');
+				localStorage.removeItem('expiry_date');
+				this.navCtrl.navigateRoot('subscription',{animationDirection: 'forward'});
+			});
+		}
+	}
 
   	ngOnInit() {
 
@@ -45,8 +74,11 @@ export class HomePage implements OnInit {
 	  }
 	  
 	ionViewWillEnter(){
+		let subsciption = localStorage.getItem('subscription_status');
+		if(subsciption == null || subsciption == undefined || subsciption == ''){
+			this.navCtrl.navigateRoot('subscription');
+		}
 		this.getListItems();
-		
 	}
 
 	doRefresh(event){
@@ -106,4 +138,6 @@ export class HomePage implements OnInit {
 		return await popover.present();
 	}
 	
+	
+
 }

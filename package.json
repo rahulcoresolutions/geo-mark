@@ -26,17 +26,23 @@
     "@ionic-native/core": "^5.0.0",
     "@ionic-native/file": "^5.22.0",
     "@ionic-native/geolocation": "^5.22.0",
+    "@ionic-native/in-app-purchase-2": "^5.22.0",
     "@ionic-native/ionic-webview": "^5.22.0",
+    "@ionic-native/network": "^5.22.0",
     "@ionic-native/photo-viewer": "^5.22.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
+    "cc.fovea.cordova.purchase": "^8.1.1",
     "com-sarriaroman-photoviewer": "^1.2.4",
+    "com.razorpay.cordova": "1.4.8",
     "cordova-android": "8.1.0",
+    "cordova-browser": "6.0.0",
     "cordova-plugin-android-permissions": "^1.0.2",
     "cordova-plugin-camera-preview": "^0.11.2",
     "cordova-plugin-file": "^6.0.2",
     "cordova-plugin-geolocation": "^4.0.2",
+    "cordova-plugin-network-information": "^2.0.2",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
@@ -86,10 +92,16 @@
       "cordova-plugin-geolocation": {},
       "cordova-plugin-android-permissions": {},
       "cordova-plugin-file": {},
-      "com-sarriaroman-photoviewer": {}
+      "com-sarriaroman-photoviewer": {},
+      "cc.fovea.cordova.purchase": {
+        "BILLING_KEY": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoN9GZ/wUvun/2fJ8qFaOc0JiMfpKoCk1j4sj+vFL74nx7rjPbm4QGat7wWBcKme32+JS3AmmYP3xLu5LdXqylazmzrwVvDI8BtuFl3/ny2B/l4A5cTWZeEnWan49X5MygR/ZXC/ZKRUQo9LPWWudOkydGda7pDa2m9zrMOu1oe6nyN32Rbeh2En40c3V9Ts9UwQWrC8NX2VxvL83xlJ/Jv3AvTh/tbRu2E3YYrGmZ+Q4lafJfXaHU4W817IKVsGfpCMsHmnc6Xa3EGnAV/VyhlXMIVGdco9Ye9eJX2Jaee2/8upI5PuutaLhXtopQiEirYjtfL7Nghw9ezIF9uuouQIDAQAB"
+      },
+      "com.razorpay.cordova": {},
+      "cordova-plugin-network-information": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "browser"
     ]
   }
 }

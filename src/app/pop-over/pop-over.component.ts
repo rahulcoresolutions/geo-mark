@@ -21,6 +21,7 @@ export class PopOverComponent implements OnInit {
 
 	logout(){
 		localStorage.removeItem('login_status');
+		localStorage.removeItem('user');
 		this.viewController.dismiss('logout');
 		this.navCtrl.navigateRoot('login',{animationDirection: 'forward'});
 	}
