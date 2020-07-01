@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
 		this.apiService.presentLoading().then(()=>{
 			this.apiService.login(data).then((result:any)=>{
 				let subscription = result.user.subscription;
-			
+				console.log(subscription);
 				if(subscription.id != undefined){
 					let today =  new Date();
 					let expiryDate = new Date(subscription.expiry_date);

@@ -1,1 +1,1 @@
-export let API_URL = 'https://core-solutions.in/geo-mark/';
+export let API_URL = 'https://webcooks.in/geo-mark/';
